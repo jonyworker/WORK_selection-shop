@@ -1,0 +1,55 @@
+
+/*/////////////////////////
+===== component - btn =====
+/////////////////////////*/
+.btn {
+  border: none;
+  display: inline-block;
+  text-align: center;
+  padding: 12px 24px;
+  border-radius: 4px;
+  color: $color-text-main;
+  transition: .3s;
+  cursor: pointer;
+}
+.btn:hover,
+.btn:active,
+.btn.active {
+  background-image: $color-gradient-1;
+  transition: 0.2s;
+}
+.btn:hover svg,
+.btn:active svg,
+.btn.active svg,
+.btn:hover p,
+.btn:active p,
+.btn.active p {
+  fill: $color-white;
+  color: $color-white;
+  transition: 0.2s;
+}
+.btn-outline {
+  border: 1px solid $color-text-main;
+}
+.btn-white {
+  color: $color-white;
+  border-color: $color-white;
+}
+.btn-wrap {
+  display: flex;
+  gap: 16px;
+}
+.btn-mobile {
+  padding: 16px 24px;
+}
+.btn-big {
+  padding: 24px 24px;
+}
+.btn-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-with-icon span {
+  font-size: 24px;
+}

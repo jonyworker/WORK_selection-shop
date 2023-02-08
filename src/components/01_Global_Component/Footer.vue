@@ -1,0 +1,186 @@
+<!-- 模板用 script -->
+<script>
+  
+</script>
+
+
+<!-- Html 模板 -->
+<template>
+  <div>
+    <footer class="footer_section">
+      <div class="container">
+        <div class="footer_content">
+          <div class="row">
+            
+            <!-- footer - logo area -->
+            <div class="footer_logo-area col-12">
+              <a href="#" class="mb-16 ">
+                <h2 class="text-3xl text-500" style="text-align: center;">麟洋當舖</h2>
+              </a>
+              <p class="text-base mb-16" style="text-align: center;">
+                麟洋當舖流當刊登平台。刊登本店各式流當品，歡迎每一位寶物獵人、喜歡美好事物的人們選購。
+              </p>
+            
+              <nav class="d-flex flex-column align-items-center gap-4 ">
+                <a class="text-sm" >地址:<span>台北市中山區復興北路200號</span></a>
+                <a class="text-sm" >營業時間:<span>09:30 - 17:30</span></a>
+                <a class="text-sm" href="tel:0225066333">TEL:<span>02-2506-6333</span></a>
+                <a class="text-sm" href="">FAX:<span>02-2506-6333</span></a>
+                <a class="text-sm" href="mailto:webmaster@example.com">E-Mail:<span>webmaster@example.com</span></a>
+              </nav>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+      <!-- footer copyright -->
+      <div class="footer_copyright-section">
+        <div class="container">
+          <div class="footer_copyright-content">
+            <div class="row">
+              <div class="col-12">
+                <!-- footer copyright -->
+                <p class="text-xs" style="text-align: center;">Copyright &copy; 2023 麟洋當舖 版權所有 All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</template>
+
+
+<!-- 模板用 style -->
+<style lang="scss">
+/*/////////////////////////
+===== layout - footer =====
+/////////////////////////*/
+
+/*========= footer - 容器基礎設定 =========*/
+.footer_content {
+  padding: 120px 0 0px;
+}
+
+/*========= footer - logo area =========*/
+.footer_logo-area .footer_logo {
+  display: block;
+  width: 139px;
+}
+.footer_logo-area .footer_text{
+  // @include text-sm;
+  color: $color-text-main;
+}
+
+/*========= footer - nav =========*/
+/*----- footer 導覽列 -----*/
+.footer_nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+.footer_nav-list .footer_nav-item {
+  width: 100%;
+}
+.footer_nav-list .footer_nav-item nav {
+  display: flex;
+  flex-direction: column;
+}
+.footer_nav-title {
+  // @include text-lg;
+  font-weight: 500;
+  color: $color-text-main;
+  margin-bottom: 16px;
+}
+.footer_nav-list .footer_nav-item nav a {
+  // @include text-sm;
+  color: $color-text-main;
+  margin-bottom: 8px;
+}
+.footer_nav-list .footer_nav-item nav a:last-of-type {
+  margin-bottom: 0;
+}
+
+
+/*========= footer - Email submit =========*/
+.email-sub-content {
+
+  width: 100%;
+}
+.email-sub-content form {
+  width: 100%;
+}
+.email-sub-content form {
+  display: flex;
+  background-color: $color-white;
+  border: 2px solid $color-alpha-white-20;
+  border-radius: 4px 0 0 4px;
+}
+.email-sub-content input[type="email"] {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  padding-left: 12px;
+  // @include text-sm;
+}
+.email-sub-content button {
+  display: block;
+  width: 80px;
+  border-radius: 0 4px 4px 0;
+  padding: 4px 16px;
+  border-style: none;
+  // @include text-sm;
+  color: $color-white;
+  background-color: $color-primary-default;
+}
+
+
+/*========= footer - copyright =========*/
+.footer_copyright-section {
+
+  border-top: 1px solid $color-border;
+  padding: 16px 0;
+  margin-top: 16px;
+}
+.footer_copyright-content .footer_copyright {
+  // @include text-xs;
+  color: $color-text-main;
+}
+
+
+
+
+
+/*/////////////////////////////
+===== Desktop First START =====
+/////////////////////////////*/
+/*----- max-width 1536 -----*/
+@media screen and (max-width: 1535.5px) {}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1199.5px) {
+  .footer_nav-list {
+    margin-top: 24px;
+  }
+}
+/*----- max-width 992 -----*/
+@media screen and (max-width: 991.5px) {}
+/*----- max-width 768 -----*/
+@media screen and (max-width: 767.5px) {
+  .footer_copyright-content .privacy-link-wrap {
+    justify-content: center;
+  }
+  .footer_copyright-content p {
+    text-align: center;
+  }
+}
+/*----- max-width 576 -----*/
+@media screen and (max-width: 575.5px) {
+  .email-sub-wrap {
+    margin-top: 24px;
+  }
+  .email-sub-content button {
+    padding: 8px 24px;
+  }
+}
+
+
+</style>

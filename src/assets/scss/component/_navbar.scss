@@ -1,0 +1,23 @@
+/*////////////////////////////
+===== component - navbar =====
+////////////////////////////*/
+
+/*========= navbar - 基礎設定 =========*/
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+.nav-list-center {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+}
+.nav-list-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.nav-item {
+  @include text-sm;
+}

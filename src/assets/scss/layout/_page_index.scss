@@ -1,0 +1,122 @@
+
+/*//////////////////////
+===== page - INDEX =====
+//////////////////////*/
+
+
+
+/*========= INDEX navbar - 個別設定 =========*/
+.main-nav-content {
+  position: relative;
+}
+.main-nav-content .main-nav-title {
+  @include text-xs;
+  display: inline;
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 8px;
+  background-color: $color-main-bg;
+  // color: $color-main-bg;
+}
+.main-nav-content .nav-list-center {
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+  white-space: nowrap;
+  overflow: auto;
+}
+.main-nav-content .nav-item {
+  letter-spacing: .1rem;
+  padding: 24px 24px;
+  margin: 0 8px;
+}
+.main-nav-content .nav-item:hover {
+  color: $color-main;
+}
+/*========= INDEX project-list_content - 個別設定 =========*/
+/*----- card - 個別設定 -----*/
+
+.project-list_content .card-content:not(:nth-of-type(-1n+3)) {
+  margin-top: 24px;
+}
+
+.project-list_content .card-body {
+  // background-color: $color-white;
+  // padding-top: 16px;
+  // padding-left: 16px;
+  // padding-right: 16px;
+  padding: 24px;
+}
+.project-list_content .card-footer {
+  background-color: $color-white;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.project-list_content .card-tag-text {
+  color: $color-primary-default;
+  margin-bottom: 16px;
+}
+
+.project-list_content .card-text {
+  color: $text-color-60;
+}
+.project-list_content .card-text.line-thought {
+  text-decoration-color: $text-color-60;
+}
+.card-text-icon-wrap .material-symbols-outlined {
+  font-size: 15px;
+  color: $color-text-main;
+}
+.project-list_content .card-footer div+.card-text {
+  @include text-lg;
+}
+
+/*========= INDEX card - 個別設定 =========*/
+
+
+.project-list_content .section-title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.project-list_content .section-title {
+  @include text-2xl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*/////////////////////////////
+===== Desktop First START =====
+/////////////////////////////*/
+/*----- max-width 1536 -----*/
+@media screen and (max-width: 1535.5px) {}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1199.5px) {
+  .project-list_content .card-content:not(:nth-of-type(-1n+2)) {
+    margin-top: 24px;
+  }
+}
+/*----- max-width 992 -----*/
+@media screen and (max-width: 991.5px) {}
+/*----- max-width 768 -----*/
+@media screen and (max-width: 767.5px) {}
+/*----- max-width 576 -----*/
+@media screen and (max-width: 575.5px) {
+  .project-list_content .card-content:not(:first-of-type) {
+    margin-top: 24px;
+  }
+}

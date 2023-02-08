@@ -1,0 +1,18 @@
+.tag {
+  border: none;
+  display: inline-block;
+  text-align: center;
+  padding: 12px 24px;
+  border-radius: 4px;
+  color: $color-white;
+  background-color: $color-discountTag;
+  letter-spacing: 8px;
+  // margin-right: -10px;
+}
+.tag::after {
+  content: "折";
+  letter-spacing: 0;
+}
+.tag-outline {
+  border: 1px solid $color-text-main;
+}

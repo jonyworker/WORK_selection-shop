@@ -1,0 +1,167 @@
+
+/*////////////////////////
+===== page - PROJECT =====
+////////////////////////*/
+/*========= PROJECT project-intro - img 個別設定 =========*/
+.project-intro-img {
+  aspect-ratio: 690/ 388;
+}
+
+/*========= PROJECT 提案人 - 個別設定 =========*/
+.proposer-wrap {
+  display: flex;
+  align-items: center;
+}
+.proposer-wrap .proposer-list {
+  display: flex;
+  align-items: center;
+}
+.proposer-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.proposer-item+.proposer-item {
+  margin-left: 8px;
+}
+.proposer-wrap .proposer-item div{
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+}
+.proposer-wrap .proposer-item svg {
+  fill: $color-text-main;
+}
+.project-intro .multiline-ellipsis {
+  -webkit-line-clamp: 5;
+}
+
+
+/*========= PROJECT progress - 個別設定 =========*/
+.progress-wrap {
+  display: flex;
+  align-items: center;
+}
+.progress-wrap .progress-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: $color-text-main;
+}
+.progress-ring {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.progress-ring svg {
+	text-align:center;
+	.progress-ring__circle {
+		transform-origin:center;
+		transform:rotate(-90deg);
+		transition:stroke-dash-offset .3s linear;
+	}
+}
+.progress-text {
+	position:absolute;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	color:red;
+}
+
+
+
+
+
+
+
+/*========= PROJECT navbar - 個別設定 =========*/
+
+.project-blog-nav-content .nav-list-left {
+  white-space: nowrap;
+  overflow: auto;
+}
+.project-blog-nav-content .nav-item {
+  letter-spacing: .1rem;
+  padding: 24px 24px;
+  margin: 0 8px;
+}
+.project-blog-nav-content .nav-item.active {
+  font-weight: 700;
+}
+
+.project-blog-nav-content .btn {
+  width: 100%;
+}
+
+/*========= PROJECT FAQ - 個別設定 =========*/
+.project-faq-section .list-group-item-col {
+  padding: 0 24px;
+  background-color: $color-white;
+}
+.project-faq-section .list-group-item-col:not(:first-of-type) {
+  margin-top: 16px;
+}
+.project-faq-section .dropdown-btn .faq-question {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+.project-faq-section .faq-answer {
+  padding-right: 6%;
+}
+
+
+
+/*========= PROJECT 專案更新頁面 - 個別設定 =========*/
+
+.project-news-section .card {
+  padding: 24px;
+  gap: 16px;
+}
+.project-news-section .card .card-text.multiline-ellipsis{
+  -webkit-line-clamp: 5;
+}
+.project-news-section .card .btn {
+  align-self: flex-end;
+}
+
+
+
+/*========= PROJECT widget - 個別設定 =========*/
+.card.widget {
+  padding: 24px;
+}
+.blog-widget div:not(:first-of-type) {
+  margin-top: 24px;
+}
+.card.widget .card-img {
+  aspect-ratio: 3 / 1;
+}
+
+
+/*/////////////////////////////
+===== Desktop First START =====
+/////////////////////////////*/
+/*----- max-width 1536 -----*/
+@media screen and (max-width: 1535.5px) {}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1199.5px) {}
+/*----- max-width 992 -----*/
+@media screen and (max-width: 991.5px) {
+  .blog-widget div:not(:first-of-type) {
+    margin-top: 0px;
+  }
+  .blog-widget div:not(:nth-of-type( -1n+2)) {
+    margin-top: 24px;
+    border: 1px solid red;
+  }
+}
+/*----- max-width 768 -----*/
+@media screen and (max-width: 767.5px) {}
+/*----- max-width 576 -----*/
+@media screen and (max-width: 575.5px) {
+  .blog-widget div:not(:first-of-type) {
+    margin-top: 24px;
+  }
+}

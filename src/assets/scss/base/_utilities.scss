@@ -1,0 +1,25 @@
+
+
+/*////////////////
+===== border =====
+////////////////*/
+.border-t {
+  border-top: 1px solid $color-border;
+}
+.border-r {
+  border-right: 1px solid $color-border;
+}
+.border-b {
+  border-bottom: 1px solid $color-border;
+}
+.border-l {
+  border-left: 1px solid $color-border;
+}
+.border-y {
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+}
+.border-x {
+  border-left: 1px solid $color-border;
+  border-right: 1px solid $color-border;
+}

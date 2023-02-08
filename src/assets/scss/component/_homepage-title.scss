@@ -1,0 +1,19 @@
+
+/*////////////////////////////////////
+===== component - homepage-title =====
+////////////////////////////////////*/
+
+/*----- title set -----*/
+.title-wrap {
+  gap: 24px;
+}
+.title-set {
+  display: flex;
+  align-items: center;
+  @include display-B-1;
+  color: $color-white ;
+}
+.title-icon {
+  width: 50px;
+  height: 50px;
+}

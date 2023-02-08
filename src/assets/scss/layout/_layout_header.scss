@@ -1,0 +1,215 @@
+/*/////////////////////////
+===== layout - header =====
+/////////////////////////*/
+
+
+/*========= header 主題控制裝置 =========*/
+#theme-toggle {
+  display: none;
+  // position: absolute;
+  z-index: -1000;
+}
+#language-toggle {
+  display: none;
+  // position: absolute;
+  z-index: -1000;
+}
+
+
+/*========= header 容器設定 =========*/
+.header_section {
+  width: 100%;
+  padding: 20px 0;
+  z-index: 1;
+  background-color: $color-white;
+  box-shadow: $header-box-shadow;
+}
+.header_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  // gap: 32px;
+}
+
+/*========= header - logo =========*/
+.header_section .header_logo {
+  flex: 0 0 139px;
+  // margin-right: 32px;
+}
+
+/*========= header - nav =========*/
+.header_nav {
+  flex: 1 1 auto;
+  // order: 0;
+}
+.header_section .header_nav-list {
+  display: flex;
+  // flex-wrap: wrap;
+}
+.header_section .header_nav-item a {
+  display: block;
+  padding: 8px 16px;
+  @include text-sm;
+}
+
+/*========= header 右側 functional-list =========*/
+.header_func-list {
+  display: flex;
+  align-items: center;
+  order: 2;
+}
+.header_func-item {
+  padding: 8px 16px;
+  background-color: $gray-200;
+}
+.header_func-item:not(:last-of-type) {
+  margin-right: 4px;
+}
+
+
+/*========= header - func-burger =========*/
+/*----- func-burger -　控制器-----*/
+#burger-func-toggle {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1000;
+}
+/*----- func-burger -　按鈕樣式-----*/
+.burger-func-toggle {
+  display: none;
+}
+.burger-func-toggle .icon-burger {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  color: $color-text-main;
+}
+.burger-func-toggle .icon-burger span {
+  margin: auto;
+  font-size: 36px;
+}
+/*----- func-burger -　選單 -----*/
+.berger-func-nav {
+  display: none;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background-color: $color-white;
+  padding-bottom: 16px;
+}
+.berger-func-item:hover {
+  background-color: $gray-200;
+}
+.berger-func-item a {
+  @include text-sm;
+  padding: 16px 0px;
+  color: $color-text-main;
+}
+
+
+
+
+/*/////////////////////////////
+===== Desktop First START =====
+/////////////////////////////*/
+/*----- max-width 1536 -----*/
+@media screen and (max-width: 1535.5px) {}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1199.5px) {}
+/*----- max-width 992 -----*/
+@media screen and (max-width: 991.5px) {}
+/*----- max-width 768 -----*/
+@media screen and (max-width: 767.5px) {
+  // 隱藏登入註冊頁
+  .header_func-list {
+    display: none;
+  }
+  // 出現漢堡選單並可以點擊
+  .burger-func-toggle {
+    display: block;
+  }
+  #burger-func-toggle:checked ~ .berger-func-nav {
+    display: block;
+  }
+}
+/*----- max-width 576 -----*/
+@media screen and (max-width: 575.5px) {
+ 
+  .header_nav {
+    border-top: 1px solid $color-border;
+    margin-top: 20px;
+    width: 100%;
+    order: 9999;
+  }
+  .header_nav-item {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- header nav - 下拉選單 -----*/
+.header_nav-item {
+  position: relative;
+}
+.header_nav-item > .language-item-list {
+  position: absolute;
+  border-radius: 12px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  display: none;
+}
+.header_nav-item:hover > .language-item-list {
+  display: block;
+}
+.language-item-list .language-item {
+  width: 136px;
+  height: 40px;
+  padding: 0px 16px;
+  border-radius: 11px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #f00;
+  display: flex;
+  align-items: center;
+}
+.language-item-list .language-item:hover,
+.language-item-list .language-item:hover > a {
+  background-color: #f3f4fe;
+  color: #5a66f9;
+}
+
+/*----- header 登入 icon -----*/
+.avatar .icon-avatar {
+  width: 48px;
+  height: 48px;
+}
+.avatar .icon-avatar svg {
+  width: 100%;
+  height: 100%;
+}
