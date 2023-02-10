@@ -8,7 +8,7 @@ export default {
   setup() {
     onMounted(() => {
       axios.get('api/productindex',{
-        header: {
+        headers: {
           runkey: runkey,
         },
         params: {
