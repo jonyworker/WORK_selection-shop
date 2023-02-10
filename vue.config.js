@@ -16,5 +16,14 @@ module.exports = defineConfig({
       },
     }
   },
-
+  devServer: { 
+    proxy: { 
+      '/api': { 
+        target: 'https://pawndemo.karwee01.com/api', 
+        pathRewrite: { '^/api': '' }, 
+        changeOrigin: true, 
+        ws: true 
+      }, 
+    } 
+  }
 })
