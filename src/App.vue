@@ -2,7 +2,7 @@
 <script>
   import Footer from "@/components/01_Global_Component/Footer.vue";
   import Header from "@/components/01_Global_Component/Header.vue";
-  import DetailView from "@/views/DetailView.vue";
+  import HomeView from "@/views/HomeView.vue";
 
   // import Banner from "@/components/Banner.vue";
   export default {
@@ -10,10 +10,10 @@
     components: {
       Header,
       Footer,
-      DetailView,
+      HomeView,
     },
   };
-
+  
 
 </script>
 
