@@ -1,6 +1,34 @@
 <!-- 模板用 script -->
 <script>
-  
+  import { onMounted, reactive } from 'vue'; 
+  import axios from 'axios';
+
+  const runkey = 'c911c55c8e4f22c1ef5066573f7f0585';
+  export default {
+    setup() {
+      const now = new Date();
+      const dateYear = now.getFullYear();
+      const footerData = reactive({info:[]});
+      onMounted(() => {
+        axios.get('api/productfoot',{
+          headers: {
+            runkey: runkey,
+          },
+          params: {
+            
+          }
+        })
+          .then(response =>{
+            footerData.info = response.data;
+          })
+          .catch (error => {
+            console.log(error);
+          })
+      });
+      
+      return {footerData, dateYear};
+    }
+  }
 </script>
 
 
@@ -15,18 +43,18 @@
             <!-- footer - logo area -->
             <div class="footer_logo-area col-12">
               <a href="#" class="mb-16 ">
-                <h2 class="text-3xl text-500" style="text-align: center;">麟洋當舖</h2>
+                <h2 class="text-3xl text-500" style="text-align: center;">{{ footerData.info.shop_title }}</h2>
               </a>
               <p class="text-base mb-16" style="text-align: center;">
-                麟洋當舖流當刊登平台。刊登本店各式流當品，歡迎每一位寶物獵人、喜歡美好事物的人們選購。
+                {{ footerData.info.second_title }}
               </p>
             
               <nav class="d-flex flex-column align-items-center gap-4 ">
-                <a class="text-sm" >地址:<span>台北市中山區復興北路200號</span></a>
-                <a class="text-sm" >營業時間:<span>09:30 - 17:30</span></a>
-                <a class="text-sm" href="tel:0225066333">TEL:<span>02-2506-6333</span></a>
-                <a class="text-sm" href="">FAX:<span>02-2506-6333</span></a>
-                <a class="text-sm" href="mailto:webmaster@example.com">E-Mail:<span>webmaster@example.com</span></a>
+                <a class="text-sm" >地址:<span>{{ footerData.info.company_add }}</span></a>
+                <a class="text-sm" >營業時間:<span>{{ footerData.info.company_time }}</span></a>
+                <a class="text-sm" href="tel:0225066333">TEL:<span>{{ footerData.info.company_tel }}</span></a>
+                <a class="text-sm" href="">FAX:<span>{{ footerData.info.company_fax }}</span></a>
+                <a class="text-sm" href="`mailto:${footerData.info.email}`">E-Mail:<span>{{ footerData.info.email }}</span></a>
               </nav>
             </div>
   
@@ -40,7 +68,7 @@
             <div class="row">
               <div class="col-12">
                 <!-- footer copyright -->
-                <p class="text-xs" style="text-align: center;">Copyright &copy; 2023 麟洋當舖 版權所有 All rights reserved.</p>
+                <p class="text-xs" style="text-align: center;">Copyright &copy; {{dateYear}} {{ footerData.info.shop_title }} 版權所有 All rights reserved.</p>
               </div>
             </div>
           </div>
