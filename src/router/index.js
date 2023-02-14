@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import DetailView from '../views/DetailView.vue'
+// import NavbarView from '../views/Navbar.vue'
 
 
 
@@ -11,6 +13,13 @@ const routes = [
     component: HomeView
     // component: DetailView
   },
+  {
+    path: '/detail',
+    name: 'DetailView',
+    component: DetailView
+  },
+  // TODO: 製作巢狀 router with id
+ 
   // {
   //   path: '/',
   //   name: 'home',
