@@ -16,6 +16,7 @@ module.exports = defineConfig({
       },
     }
   },
+  // 使用 http-proxy-middleware 代理解决 Api跨域問題
   devServer: { 
     proxy: { 
       '/api': { 
