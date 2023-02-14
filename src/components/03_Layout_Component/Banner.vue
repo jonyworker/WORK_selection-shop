@@ -45,30 +45,14 @@ export default {
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
           <!-- 指標 -->
           <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+			<button v-for="(item,key) in bannerData.data" :key="key" type="button" data-bs-target="#carouselExampleIndicators" :class="key == 0 ? 'active' : ''" :data-bs-slide-to="key" :aria-label="'Slide ' + key+1"></button>
           </div>
           <!-- 圖片 -->
           
           <div class="carousel-inner">
-            <div class="carousel-item ratio-16x9 active">
-              <img src="~@/assets/image/blue.png" class="d-block w-100" alt="">
-            </div>
-            <div class="carousel-item ratio-16x9">
-              <img src="~@/assets/image/balck.png" class="d-block w-100" alt="">
-            </div>
-            <div class="carousel-item ratio-16x9">
-              <img src="~@/assets/image/blue.png" class="d-block w-100" alt="">
-            </div>
-            <div class="carousel-item ratio-16x9">
-              <img src="~@/assets/image/balck.png" class="d-block w-100" alt="">
-            </div>
-            <div class="carousel-item ratio-16x9">
-              <img src="~@/assets/image/blue.png" class="d-block w-100" alt="">
-            </div>
+			  <div :class="key == 0 ? 'carousel-item ratio-16x9 active' : 'carousel-item ratio-16x9'" v-for="(item,key) in bannerData.data" :key="key">
+			    <img :src="item.img_path" class="d-block w-100" alt="">
+			  </div>
           </div>
           <!-- 左按鈕 -->
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
