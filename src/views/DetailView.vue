@@ -1,6 +1,36 @@
 <!-- 模板用 script -->
 <script>
+  import { onMounted, reactive } from 'vue'; 
+  import axios from 'axios';
+
+  const runkey = 'c911c55c8e4f22c1ef5066573f7f0585';
   
+  export default {
+    setup() {
+
+      let product = reactive({data:[]});
+      onMounted(() => {
+        axios.get('api/productdesc',{
+          headers: {
+            runkey: runkey,
+          },
+          params: {
+            id: 1,
+          }
+        })
+          .then(response =>{
+            // console.log(response);
+            product.data = response.data.product[0];
+            // console.log(product.data);
+          })
+          .catch (error => {
+            console.log(error);
+          })
+      });
+      
+      return {product};
+    }
+  }
 </script>
 
 
@@ -23,13 +53,13 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item ratio-1x1 active">
-                    <img src="@/assets/image/balck.png" class="d-block w-100" alt="...">
+                    <img :src="product.data.imgname1" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item ratio-1x1">
-                    <img src="@/assets/image/blue.png" class="d-block w-100" alt="...">
+                    <img :src="product.data.imgname2" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item ratio-1x1">
-                    <img src="@/assets/image/red.png" class="d-block w-100" alt="...">
+                    <img :src="product.data.imgname3" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -50,7 +80,7 @@
                   
                   <!-- 標題 -->
                   <a href="#" class="flex-grow-1">
-                    <h2 class="text-3xl text-500">ROLEX 勞力士 116610 </h2>
+                    <h2 class="text-3xl text-500">{{ product.data.name }}</h2>
                   </a>
                   <!-- 折價標籤 -->
                   <div class="tag discont text-lg text-500 align-self-start flex-shrink-0" style="right: 24px;bottom: 24px;">25</div>
@@ -58,13 +88,13 @@
                 
                 <!-- 內文 -->
                 <p class="text clamp-3 mb-32">
-                  原裝、勞力士、116610、黑水鬼、自動、男錶、9成5新，喜歡價可議，原廠機心3135，錶徑40mm，保單收藏盒遺失了
+                  {{ product.data.description }}
                 </p>
   
                 <!-- 售價 -->
                 <div class="d-flex flex-column mb-16">
-                  <p class="text-2xl text-bold">NT$906,544</p>
-                  <p class="text-xs">市售價 <span class="line-thought">NT$200,000</span></p>
+                  <p class="text-2xl text-bold">NT${{ product.data.price }}</p>
+                  <p class="text-xs">市售價 <span class="line-thought">NT${{ product.data.market_price }}</span></p>
                 </div>
                 <!-- 分隔線 -->
                 <div class="divider mb-16"></div>
