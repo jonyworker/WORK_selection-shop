@@ -2,7 +2,7 @@
 <script>
   import Banner from "@/components/03_Layout_Component/Banner.vue";
   import Navbar from "@/components/03_Layout_Component/Navbar.vue";
-  import CardList from "@/components/03_Layout_Component/CardList.vue";
+  import CardList from "@/components/03_Layout_Component/CardList/CardList.vue";
 
   export default {
     name: 'HomeView',
