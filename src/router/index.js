@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DetailView from '../views/DetailView.vue'
+import CardList from '../components/03_Layout_Component/CardList/CardList.vue'
+import CardList_id from '../components/03_Layout_Component/CardList/_id.vue'
 // import NavbarView from '../views/Navbar.vue'
 
 
@@ -17,6 +19,17 @@ const routes = [
     path: '/detail',
     name: 'DetailView',
     component: DetailView
+  },
+  {
+    path: '/cardlist',
+    name: 'CardList',
+    component: CardList
+  },
+
+  {
+    path: '/cardlist/:id',
+    name: 'CardList_id',
+    component: CardList_id
   },
   // TODO: 製作巢狀 router with id
  
