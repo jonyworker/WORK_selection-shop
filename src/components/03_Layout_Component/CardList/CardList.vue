@@ -25,7 +25,7 @@ export default {
           console.log(cardList.data);
         })
         .catch (error => {
-          console.log(error);
+          console.log(error.response.data);
         })
     });
     return {cardList};
@@ -41,7 +41,7 @@ export default {
       <div class="project-list_content">
         <!-- <h2>{{ cardList.data }}</h2> -->
         <!-- card-content -->
-        <div class="row" stle="gap: 24px 0px">
+        <div class="row" style="gap: 24px 0px" >
 
           <router-link 
             v-for="item in cardList.data" 
@@ -51,7 +51,7 @@ export default {
           >
             <div class="card po-relative" >
               <div class="card-img" style="position:relative;">
-                <img src="~@/assets/image/portfolio/port1.jpg" alt="">
+                <img :src="item.imgname1" alt="">
                 <!-- 有折數回傳顯示 -->
                 <div class="po-absolute tag discont text-500" style="right: 24px;bottom: 24px;">25</div>
               </div>
