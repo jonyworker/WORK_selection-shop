@@ -31,8 +31,6 @@ const loadData = (index) => {
     });
 };
 </script>
-
-
 <!-- Html 模板 -->
 <template>
   <div>
