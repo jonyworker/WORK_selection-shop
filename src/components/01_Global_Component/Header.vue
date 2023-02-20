@@ -1,32 +1,24 @@
 <!-- 模板用 script -->
-<script>
-  import { onMounted, reactive } from 'vue'; 
-  import axios from 'axios';
+<script setup>
+import { onMounted, reactive } from 'vue';
+import axios from 'axios';
+import http from "@/utils/http";
+const footerData = reactive({info:[]});
+onMounted(() => {
+  http.get('api/productfoot')
+    .then(response =>{
+      footerData.info = response.data;
+    })
+    .catch (error => {
+      console.log(error);
+    })
+});
 
-  const runkey = 'c911c55c8e4f22c1ef5066573f7f0585';
-  export default {
-    setup() {
-      const footerData = reactive({info:[]});
-      onMounted(() => {
-        axios.get('api/productfoot',{
-          headers: {
-            runkey: runkey,
-          },
-          params: {
-            
-          }
-        })
-          .then(response =>{
-            footerData.info = response.data;
-          })
-          .catch (error => {
-            console.log(error);
-          })
-      });
-      
-      return {footerData};
-    }
-  }
+const openUrl = lineId =>{
+    window.open(`https://line.me/R/ti/p/~0905111859${lineId}`)
+}
+
+
 </script>
 
 
@@ -43,7 +35,7 @@
           <h1 class="text-3xl text-500">{{ footerData.info.shop_title }}</h1>
         </a>
 
-        <button class="btn flex-shink-0 text-lg" type="button">
+        <button class="btn flex-shink-0 text-lg" type="button" @click="openUrl(footerData.info.line_id)">
           <a class="d-block" ref="tel:0285219025">
             <div class="btn-with-icon">
               <div class="i-32">

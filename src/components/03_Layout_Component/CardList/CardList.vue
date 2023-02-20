@@ -1,36 +1,29 @@
 <!-- 模板用 script -->
-<script>
-  import { onMounted, reactive, ref } from 'vue';
-import axios from 'axios';
-
-
-const runkey = 'c911c55c8e4f22c1ef5066573f7f0585';
-export default {
-  setup() {
-    const cardList = reactive({data:[]});
-    
-    onMounted(() => {
-      axios.get('api/productindex',{
-        headers: {
-          runkey: runkey,
-        },
-        params: {
-          category: null,
-          count: 10,
-          page: 1
-        }
-      })
-        .then(response =>{
-          cardList.data = response.data.product;
-          console.log(cardList.data);
-        })
-        .catch (error => {
-          console.log(error.response.data);
-        })
-    });
-    return {cardList};
+<script setup>
+const props = defineProps({
+  cardList: {
+    type: Array,
+    default: () => {
+      return [];
+    },
+  },
+  catalogs: {
+    type: Object,
+    default: () => {},
+  },
+});
+const getPrice = (product) => {
+  if (product.market_price > 0) {
+    return (product.price * 10) / product.market_price;
+  } else {
+    return "-";
   }
-}
+};
+const getCatalog = (product) => {
+  console.log(product);
+  console.log(props.catalogs);
+  return props.catalogs?.[product.category] || "-";
+};
 </script>
 
 
@@ -41,22 +34,26 @@ export default {
       <div class="project-list_content">
         <!-- <h2>{{ cardList.data }}</h2> -->
         <!-- card-content -->
-        <div class="row" style="gap: 24px 0px" >
-
-          <router-link 
-            v-for="item in cardList.data" 
-            :key="item.id" 
-            :to="`/cardlist/${item.id}`" 
-            class="card-content col-12 col-sm-6 col-xl-4" 
+        <div class="row" style="gap: 24px 0px">
+          <router-link
+            v-for="item in cardList"
+            :key="item.id"
+            :to="`/cardlist/${item.id}`"
+            class="card-content col-12 col-sm-6 col-xl-4"
           >
-            <div class="card po-relative" >
-              <div class="card-img" style="position:relative;">
-                <img :src="item.imgname1" alt="">
+            <div class="card po-relative">
+              <div class="card-img" style="position: relative">
+                <img :src="item.imgname1" alt="" />
                 <!-- 有折數回傳顯示 -->
-                <div class="po-absolute tag discont text-500" style="right: 24px;bottom: 24px;">25</div>
+                <div
+                  class="po-absolute tag discont text-500"
+                  style="right: 24px; bottom: 24px"
+                >
+                  {{ getPrice(item) }}
+                </div>
               </div>
               <div class="card-body">
-                <p class="card-tag-text text-bold">珠寶首飾 JEWELRY</p>
+                <p class="card-tag-text text-bold">{{ getCatalog(item) }}</p>
                 <h3 class="card-title mb-16">{{ item.name }}</h3>
                 <p class="card-text multiline-ellipsis">
                   {{ item.description }}
@@ -66,18 +63,16 @@ export default {
                 <!-- card - 文字 -->
                 <div class="d-flex justify-content-between align-items-end">
                   <div class="card-text-icon-wrap">
-                    <span class="material-symbols-outlined">
-                      sell
-                    </span>
-                    <p class="card-text line-thought">{{ item.market_price }}</p>
+                    <span class="material-symbols-outlined"> sell </span>
+                    <p class="card-text line-thought">
+                      {{ item.market_price }}
+                    </p>
                   </div>
                   <p class="text-2xl text-bold">{{ item.price }}</p>
                 </div>
               </div>
             </div>
           </router-link>
-          
-          
         </div>
       </div>
     </div>
@@ -87,55 +82,55 @@ export default {
 
 <!-- 模板用 style -->
 <style lang="scss">
-  .project-list_content .card-content:not(:nth-of-type(-1n+3)) {
+.project-list_content .card-content:not(:nth-of-type(-1n + 3)) {
   margin-top: 24px;
-  }
+}
 
-  .project-list_content .card-body {
-    // background-color: $color-white;
-    // padding-top: 16px;
-    // padding-left: 16px;
-    // padding-right: 16px;
-    padding: 24px;
-  }
-  .project-list_content .card-footer {
-    background-color: $color-white;
-    padding-bottom: 24px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+.project-list_content .card-body {
+  // background-color: $color-white;
+  // padding-top: 16px;
+  // padding-left: 16px;
+  // padding-right: 16px;
+  padding: 24px;
+}
+.project-list_content .card-footer {
+  background-color: $color-white;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
 
-  .project-list_content .card-tag-text {
-    color: $color-primary-default;
-    margin-bottom: 16px;
-  }
+.project-list_content .card-tag-text {
+  color: $color-primary-default;
+  margin-bottom: 16px;
+}
 
-  .project-list_content .card-text {
-    color: $text-color-60;
-  }
-  .project-list_content .card-text.line-thought {
-    text-decoration-color: $text-color-60;
-  }
-  .card-text-icon-wrap .material-symbols-outlined {
-    font-size: 15px;
-    color: $color-text-main;
-  }
-  .project-list_content .card-footer div+.card-text {
-    @include text-lg;
-  }
-  .title {
-    @include text-xl;
-  }
-  .subtitle {
-    @include text-base;
-  }
-  .text {
-    @include text-sm;
-  }
-  .tag-text {
-    @include text-base;
-  }
-  /*//////////////////////////
+.project-list_content .card-text {
+  color: $text-color-60;
+}
+.project-list_content .card-text.line-thought {
+  text-decoration-color: $text-color-60;
+}
+.card-text-icon-wrap .material-symbols-outlined {
+  font-size: 15px;
+  color: $color-text-main;
+}
+.project-list_content .card-footer div + .card-text {
+  @include text-lg;
+}
+.title {
+  @include text-xl;
+}
+.subtitle {
+  @include text-base;
+}
+.text {
+  @include text-sm;
+}
+.tag-text {
+  @include text-base;
+}
+/*//////////////////////////
 ===== component - card =====
 //////////////////////////*/
 
@@ -153,7 +148,7 @@ export default {
 .card-img {
   // aspect-ratio: 1.618 / 1;
   aspect-ratio: 1 / 1;
-  overflow: hidden
+  overflow: hidden;
 }
 .card-img img {
   object-fit: cover;

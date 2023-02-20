@@ -1,34 +1,33 @@
 <!-- 模板用 script -->
 <script>
-  import { onMounted, reactive } from 'vue'; 
-  import axios from 'axios';
+import { onMounted, reactive } from "vue";
+import axios from "axios";
 
-  const runkey = 'c911c55c8e4f22c1ef5066573f7f0585';
-  export default {
-    setup() {
-      const now = new Date();
-      const dateYear = now.getFullYear();
-      const footerData = reactive({info:[]});
-      onMounted(() => {
-        axios.get('api/productfoot',{
+const runkey = "c911c55c8e4f22c1ef5066573f7f0585";
+export default {
+  setup() {
+    const now = new Date();
+    const dateYear = now.getFullYear();
+    const footerData = reactive({ info: [] });
+    onMounted(() => {
+      axios
+        .get("api/productfoot", {
           headers: {
             runkey: runkey,
           },
-          params: {
-            
-          }
+          params: {},
         })
-          .then(response =>{
-            footerData.info = response.data;
-          })
-          .catch (error => {
-            console.log(error);
-          })
-      });
-      
-      return {footerData, dateYear};
-    }
-  }
+        .then((response) => {
+          footerData.info = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+
+    return { footerData, dateYear };
+  },
+};
 </script>
 
 
@@ -39,25 +38,35 @@
       <div class="container">
         <div class="footer_content">
           <div class="row">
-            
             <!-- footer - logo area -->
             <div class="footer_logo-area col-12">
-              <a href="#" class="mb-16 ">
-                <h2 class="text-3xl text-500" style="text-align: center;">{{ footerData.info.shop_title }}</h2>
+              <a href="#" class="mb-16">
+                <h2 class="text-3xl text-500" style="text-align: center">
+                  {{ footerData.info.shop_title }}
+                </h2>
               </a>
-              <p class="text-base mb-16" style="text-align: center;">
+              <p class="text-base mb-16" style="text-align: center">
                 {{ footerData.info.second_title }}
               </p>
-            
-              <nav class="d-flex flex-column align-items-center gap-4 ">
-                <a class="text-sm" >地址:<span>{{ footerData.info.company_add }}</span></a>
-                <a class="text-sm" >營業時間:<span>{{ footerData.info.company_time }}</span></a>
-                <a class="text-sm" href="tel:0225066333">TEL:<span>{{ footerData.info.company_tel }}</span></a>
-                <a class="text-sm" href="">FAX:<span>{{ footerData.info.company_fax }}</span></a>
-                <a class="text-sm" href="`mailto:${footerData.info.email}`">E-Mail:<span>{{ footerData.info.email }}</span></a>
+
+              <nav class="d-flex flex-column align-items-center gap-4">
+                <a class="text-sm"
+                  >地址:<span>{{ footerData.info.company_add }}</span></a
+                >
+                <a class="text-sm"
+                  >營業時間:<span>{{ footerData.info.company_time }}</span></a
+                >
+                <a class="text-sm" href="tel:0225066333"
+                  >TEL:<span>{{ footerData.info.company_tel }}</span></a
+                >
+                <a class="text-sm" href=""
+                  >FAX:<span>{{ footerData.info.company_fax }}</span></a
+                >
+                <a class="text-sm" href="`mailto:${footerData.info.email}`"
+                  >E-Mail:<span>{{ footerData.info.email }}</span></a
+                >
               </nav>
             </div>
-  
           </div>
         </div>
       </div>
@@ -68,7 +77,9 @@
             <div class="row">
               <div class="col-12">
                 <!-- footer copyright -->
-                <p class="text-xs" style="text-align: center;">Copyright &copy; {{dateYear}} {{ footerData.info.shop_title }} 版權所有 All rights reserved.</p>
+                <p class="text-xs" style="text-align: center">
+                  {{ footerData.info.copyright_note }}
+                </p>
               </div>
             </div>
           </div>
@@ -95,7 +106,7 @@
   display: block;
   width: 139px;
 }
-.footer_logo-area .footer_text{
+.footer_logo-area .footer_text {
   // @include text-sm;
   color: $color-text-main;
 }
@@ -128,10 +139,8 @@
   margin-bottom: 0;
 }
 
-
 /*========= footer - Email submit =========*/
 .email-sub-content {
-
   width: 100%;
 }
 .email-sub-content form {
@@ -161,10 +170,8 @@
   background-color: $color-primary-default;
 }
 
-
 /*========= footer - copyright =========*/
 .footer_copyright-section {
-
   border-top: 1px solid $color-border;
   padding: 16px 0;
   margin-top: 16px;
@@ -174,15 +181,12 @@
   color: $color-text-main;
 }
 
-
-
-
-
 /*/////////////////////////////
 ===== Desktop First START =====
 /////////////////////////////*/
 /*----- max-width 1536 -----*/
-@media screen and (max-width: 1535.5px) {}
+@media screen and (max-width: 1535.5px) {
+}
 /*----- max-width 1200 -----*/
 @media screen and (max-width: 1199.5px) {
   .footer_nav-list {
@@ -190,7 +194,8 @@
   }
 }
 /*----- max-width 992 -----*/
-@media screen and (max-width: 991.5px) {}
+@media screen and (max-width: 991.5px) {
+}
 /*----- max-width 768 -----*/
 @media screen and (max-width: 767.5px) {
   .footer_copyright-content .privacy-link-wrap {
@@ -209,6 +214,4 @@
     padding: 8px 24px;
   }
 }
-
-
 </style>
