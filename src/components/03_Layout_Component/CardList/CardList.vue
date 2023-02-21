@@ -63,10 +63,10 @@ const getCatalog = (product) => {
                   <div class="card-text-icon-wrap">
                     <span class="material-symbols-outlined"> sell </span>
                     <p class="card-text line-thought">
-                      {{ item.market_price }}
+                      {{ (item.market_price).toLocaleString('en-US') }}
                     </p>
                   </div>
-                  <p class="text-2xl text-bold">{{ item.price }}</p>
+                  <p class="text-2xl text-bold">{{ (item.price).toLocaleString('en-US') }}</p>
                 </div>
               </div>
             </div>
