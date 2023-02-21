@@ -1,40 +1,30 @@
 <!-- 模板用 script -->
-<script>
+<script setup>
 import { onMounted, reactive } from "vue";
 // import { useRoute } from 'vue-router';
-import axios from "axios";
+import http from "@/utils/http";
 
-const runkey = "c911c55c8e4f22c1ef5066573f7f0585";
-export default {
-  setup() {
-    let product = reactive({ data: {} });
-    // const route = useRoute();
-    // const routeID = route.params.id;
-    // console.log(routeID);
-    // console.log(route.params.id);
+const product = reactive({ data: {} });
 
-    onMounted(() => {
-      axios
-        .get("api/productdesc", {
-          headers: {
-            runkey: runkey,
-          },
-          params: {
-            id: 1,
-          },
-        })
-        .then((response) => {
-          console.log(response);
-          product.data = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+onMounted(() => {
+  http
+    .get("/api/productdesc", {
+      params: {
+        id: 1,
+      },
+    })
+    .then((response) => {
+      console.log(response);
+      if (response.data.product[0]) {
+        product.data = response.data.product[0];
+      } else {
+        product.data = {};
+      }
+    })
+    .catch((error) => {
+      console.log(error);
     });
-
-    return { product };
-  },
-};
+});
 </script>
 
 
@@ -82,14 +72,20 @@ export default {
                       alt="..."
                     />
                   </div>
-                  <div class="carousel-item ratio-1x1">
+                  <div
+                    class="carousel-item ratio-1x1"
+                    v-if="product.data.imgname2"
+                  >
                     <img
                       :src="product.data.imgname2"
                       class="d-block w-100"
                       alt="..."
                     />
                   </div>
-                  <div class="carousel-item ratio-1x1">
+                  <div
+                    class="carousel-item ratio-1x1"
+                    v-if="product.data.imgname3"
+                  >
                     <img
                       :src="product.data.imgname3"
                       class="d-block w-100"
