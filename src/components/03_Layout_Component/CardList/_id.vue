@@ -7,16 +7,7 @@ import { useRoute } from "vue-router";
 import showUtil from "@/utils/showUtil";
 const product = reactive({ data: {} });
 const getPercent = (product) => {
-<<<<<<< HEAD
-  if (product.market_price > 0) {
-
-    return parseFloat((product.price * 10) / product.market_price).toFixed(1);
-  } else {
-    return "-";
-  }
-=======
   return showUtil.showPercentage(product);
->>>>>>> 085723e (d)
 };
 const route = useRoute();
 onMounted(() => {
@@ -249,7 +240,7 @@ const openUrl = (lineId) => {
                               version="1.1"
                               id="Capa_1"
                               xmlns="http://www.w3.org/2000/svg"
-                              xmlns:xlink="http://www.w3.org/1999/xlink" 
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
                               viewBox="0 0 220.262 220.262"
                               xml:space="preserve"
                             >

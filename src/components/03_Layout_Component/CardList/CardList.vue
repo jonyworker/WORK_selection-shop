@@ -15,15 +15,7 @@ const props = defineProps({
   },
 });
 const getPrice = (product) => {
-<<<<<<< HEAD
-  if (product.market_price > 0) {
-    return ((product.price * 10) / product.market_price).toFixed(1);
-  } else {
-    return "-";
-  }
-=======
   return showUtil.showPercentage(product);
->>>>>>> 085723e (d)
 };
 const getCatalog = (product) => {
   console.log(product);
