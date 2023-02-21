@@ -1,33 +1,23 @@
 <!-- 模板用 script -->
-<script>
+<script setup>
 import { onMounted, reactive } from "vue";
-import axios from "axios";
+import http from "@/utils/http";
 
-const runkey = "c911c55c8e4f22c1ef5066573f7f0585";
-export default {
-  setup() {
-    const now = new Date();
-    const dateYear = now.getFullYear();
-    const footerData = reactive({ info: [] });
-    onMounted(() => {
-      axios
-        .get("api/productfoot", {
-          headers: {
-            runkey: runkey,
-          },
-          params: {},
-        })
-        .then((response) => {
-          footerData.info = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+const now = new Date();
+const dateYear = now.getFullYear();
+const footerData = reactive({ info: [] });
+onMounted(() => {
+  http
+    .get("/api/productfoot", {
+      params: {},
+    })
+    .then((response) => {
+      footerData.info = response.data;
+    })
+    .catch((error) => {
+      console.log(error);
     });
-
-    return { footerData, dateYear };
-  },
-};
+});
 </script>
 
 

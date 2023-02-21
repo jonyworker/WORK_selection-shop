@@ -16,7 +16,7 @@ const changeCatalogs = (index) => {
 };
 const loadData = (index) => {
   http
-    .get("api/productindex", {
+    .get("/api/productindex", {
       params: {
         category: index,
         count: 10,
