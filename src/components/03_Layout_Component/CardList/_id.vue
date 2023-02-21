@@ -3,14 +3,23 @@
 import { onMounted, reactive } from "vue";
 // import { useRoute } from 'vue-router';
 import http from "@/utils/http";
+import { useRoute } from "vue-router";
 
 const product = reactive({ data: {} });
-
+const getPercent = (product) => {
+  if (product.market_price > 0) {
+    return (product.price * 10) / product.market_price;
+  } else {
+    return "-";
+  }
+};
+const route = useRoute();
 onMounted(() => {
+  let id = route.params.id;
   http
     .get("/api/productdesc", {
       params: {
-        id: 1,
+        id: id,
       },
     })
     .then((response) => {
@@ -132,7 +141,7 @@ onMounted(() => {
                     class="tag discont text-lg text-500 align-self-start flex-shrink-0"
                     style="right: 24px; bottom: 24px"
                   >
-                    25
+                    {{ getPercent(product.data) }}
                   </div>
                 </div>
 
