@@ -13,6 +13,7 @@ onMounted(() => {
     })
     .then((response) => {
       footerData.info = response.data;
+      document.title = footerData.info?.shop_title || "ktpshop";
     })
     .catch((error) => {
       console.log(error);
