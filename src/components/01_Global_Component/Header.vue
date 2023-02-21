@@ -39,7 +39,7 @@ const openUrl = (lineId) => {
           type="button"
           @click="openUrl(footerData.info.line_id)"
         >
-          <a class="d-block" ref="tel:0285219025">
+          <a class="d-block" ref="">
             <div class="btn-with-icon">
               <div class="i-32">
                 <svg

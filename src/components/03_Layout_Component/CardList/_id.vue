@@ -8,7 +8,8 @@ import { useRoute } from "vue-router";
 const product = reactive({ data: {} });
 const getPercent = (product) => {
   if (product.market_price > 0) {
-    return (product.price * 10) / product.market_price;
+
+    return parseFloat((product.price * 10) / product.market_price).toFixed(1);
   } else {
     return "-";
   }
@@ -48,7 +49,7 @@ const openUrl = (lineId) => {
         <div class="project-intro-content">
           <div class="row">
             <!-- project-intro-img -->
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-12 mb-lg-0 mb-24">
               <div
                 id="carouselExampleIndicators"
                 class="carousel slide"
