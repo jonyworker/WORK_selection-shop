@@ -34,7 +34,7 @@ const loadData = (index) => {
 <!-- Html 模板 -->
 <template>
   <div>
-    <Banner :bannerData="banner" />
+    <Banner :banner="banner" />
     <Navbar :catalogs="tab_catalogs" @changeCatalogs="changeCatalogs" />
     <CardList :cardList="card_list" :catalogs="tab_catalogs" />
   </div>
