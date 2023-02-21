@@ -34,6 +34,9 @@ onMounted(() => {
       console.log(error);
     });
 });
+const openUrl = (lineId) => {
+  window.open(`https://line.me/R/ti/p/~${lineId}`);
+};
 </script>
 
 
@@ -170,8 +173,9 @@ onMounted(() => {
                     <button
                       class="btn btn-big flex-grow-1 text-lg"
                       type="button"
+                      @click="openUrl(product.data.line_id)"
                     >
-                      <a class="d-block" ref="tel:0285219025">
+                      <a class="d-block" ref="">
                         <div class="btn-with-icon">
                           <div class="i-32">
                             <svg
@@ -233,14 +237,14 @@ onMounted(() => {
                       class="btn btn-big flex-grow-1 text-lg"
                       type="button"
                     >
-                      <a class="d-block" ref="tel:0285219025">
+                      <a class="d-block" :href="'tel:' + product.data.mobile">
                         <div class="btn-with-icon">
                           <div class="i-32">
                             <svg
                               version="1.1"
                               id="Capa_1"
                               xmlns="http://www.w3.org/2000/svg"
-                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" 
                               viewBox="0 0 220.262 220.262"
                               xml:space="preserve"
                             >
