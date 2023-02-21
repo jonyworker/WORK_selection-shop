@@ -16,7 +16,7 @@ onMounted(() => {
 });
 
 const openUrl = (lineId) => {
-  window.open(`https://line.me/R/ti/p/~0905111859${lineId}`);
+  window.open(`https://line.me/R/ti/p/~${lineId}`);
 };
 </script>
 
