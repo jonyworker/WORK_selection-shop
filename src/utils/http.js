@@ -2,7 +2,7 @@ import axios from 'axios';
 const http = axios.create({
   baseURL: process.env.VUE_APP_API_BASEURL, // 设置请求的baseURL
 });
-
+axios.defaults.withCredentials=false;
 // 添加请求拦截器
 http.interceptors.request.use(config => {
   // 在发送请求之前做些什么
