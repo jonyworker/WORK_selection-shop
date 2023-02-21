@@ -4,15 +4,19 @@ import { onMounted, reactive } from "vue";
 // import { useRoute } from 'vue-router';
 import http from "@/utils/http";
 import { useRoute } from "vue-router";
-
+import showUtil from "@/utils/showUtil";
 const product = reactive({ data: {} });
 const getPercent = (product) => {
+<<<<<<< HEAD
   if (product.market_price > 0) {
 
     return parseFloat((product.price * 10) / product.market_price).toFixed(1);
   } else {
     return "-";
   }
+=======
+  return showUtil.showPercentage(product);
+>>>>>>> 085723e (d)
 };
 const route = useRoute();
 onMounted(() => {
