@@ -24,7 +24,7 @@ const gotoDetail = (index) => {
   <section class="main-nav-section mb-32">
     <div class="container">
       <div class="main-nav-content">
-        <h2 class="main-nav-title">流當品類別</h2>
+        <h2 class="main-nav-title">精品類別</h2>
         <nav class="nav">
           <ul
             class="nav-list-center justify-content-lg-center justify-content-start"
