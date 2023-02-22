@@ -53,7 +53,7 @@ const getCatalog = (product) => {
               <div class="card-body">
                 <p class="card-tag-text text-bold">{{ getCatalog(item) }}</p>
                 <h3 class="card-title mb-16">{{ item.name }}</h3>
-                <p class="card-text multiline-ellipsis">
+                <p class="card-text clamp-2">
                   {{ item.description }}
                 </p>
               </div>
@@ -66,7 +66,8 @@ const getCatalog = (product) => {
                       {{ (item.market_price).toLocaleString('en-US') }}
                     </p>
                   </div>
-                  <p class="text-2xl text-bold">{{ (item.price).toLocaleString('en-US') }}</p>
+                  <p v-if="item.show_price_ind == 1" class="text-2xl text-bold">{{ (item.price).toLocaleString('en-US') }}</p>
+                  <p v-if="item.show_price_ind == 2" class="text-2xl text-bold">歡迎詢價</p>
                 </div>
               </div>
             </div>

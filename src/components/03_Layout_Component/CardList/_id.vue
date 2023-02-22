@@ -151,7 +151,8 @@ const openUrl = (lineId) => {
 
                 <!-- 售價 -->
                 <div class="d-flex flex-column mb-16">
-                  <p class="text-2xl text-bold">NT${{ product.data.price }}</p>
+                  <p v-if="product.data.show_price_ind == 1" class="text-2xl text-bold">NT${{ product.data.price }}</p>
+                  <p v-if="product.data.show_price_ind == 2" class="text-2xl text-bold">歡迎詢價</p>
                   <p class="text-xs">
                     市售價
                     <span class="line-thought"
