@@ -37,7 +37,7 @@ onMounted(() => {
                 </h2>
               </router-link>
               <p class="text-base mb-16" style="text-align: center">
-                {{ footerData.info.second_title }}
+                {{ footerData.info.shop_title + footerData.info.second_title }}
               </p>
 
               <nav class="d-flex flex-column align-items-center gap-4">
