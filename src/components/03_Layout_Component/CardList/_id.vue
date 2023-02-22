@@ -137,7 +137,7 @@ const openUrl = (lineId) => {
                   </a>
                   <!-- 折價標籤 -->
                   <div
-                    class="tag discont text-lg text-500 align-self-start flex-shrink-0"
+                    class="tag discont text-lg text-500 align-self-start flex-shrink-0 py-8 px-24"
                     style="right: 24px; bottom: 24px"
                   >
                     {{ getPercent(product.data) }}
@@ -150,15 +150,15 @@ const openUrl = (lineId) => {
                 </p>
 
                 <!-- 售價 -->
-                <div class="d-flex flex-column mb-16">
-                  <p v-if="product.data.show_price_ind == 1" class="text-2xl text-bold">NT${{ product.data.price }}</p>
-                  <p v-if="product.data.show_price_ind == 2" class="text-2xl text-bold">歡迎詢價</p>
+                <div class="d-flex align-items-end justify-content-between mb-16">
                   <p class="text-xs">
                     市售價
                     <span class="line-thought"
                       >NT${{ product.data.market_price }}</span
                     >
                   </p>
+                  <p v-if="product.data.show_price_ind == 1" class="text-2xl text-bold">NT${{ product.data.price }}</p>
+                  <p v-if="product.data.show_price_ind == 2" class="text-2xl text-bold" style="color:#FFB11B">歡迎來電洽詢</p>
                 </div>
                 <!-- 分隔線 -->
                 <div class="divider mb-16"></div>

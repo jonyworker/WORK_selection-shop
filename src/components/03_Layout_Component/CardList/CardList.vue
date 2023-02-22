@@ -44,7 +44,8 @@ const getCatalog = (product) => {
                 <img :src="item.imgname1" alt="" />
                 <!-- 有折數回傳顯示 -->
                 <div
-                  class="po-absolute tag discont text-500"
+                  v-if="item.show_price_ind == 1"
+                  class="po-absolute tag discont text-500 py-16 px-24"
                   style="right: 24px; bottom: 24px"
                 >
                   {{ getPrice(item) }}
@@ -81,9 +82,9 @@ const getCatalog = (product) => {
 
 <!-- 模板用 style -->
 <style lang="scss">
-.project-list_content .card-content:not(:nth-of-type(-1n + 3)) {
-  margin-top: 24px;
-}
+// .project-list_content .card-content:not(:nth-of-type(-1n + 3)) {
+//   margin-top: 24px;
+// }
 
 .project-list_content .card-body {
   // background-color: $color-white;
