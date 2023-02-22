@@ -137,6 +137,7 @@ const openUrl = (lineId) => {
                   </a>
                   <!-- 折價標籤 -->
                   <div
+                    v-if="product.data.show_price_ind == 1"
                     class="tag discont text-lg text-500 align-self-start flex-shrink-0 py-8 px-24"
                     style="right: 24px; bottom: 24px"
                   >
@@ -168,12 +169,12 @@ const openUrl = (lineId) => {
                   <div class="d-flex flex-md-row flex-column gap-16 mx-auto">
                     <!-- line諮詢按鈕 -->
                     <button
-                      class="btn btn-big flex-grow-1 text-lg"
+                      class="btn btn-big flex-grow-1 text-lg justify-content-center"
                       type="button"
                       @click="openUrl(product.data.line_id)"
                     >
                       <a class="d-block" ref="">
-                        <div class="btn-with-icon">
+                        <div class="btn-with-icon justify-content-lg-start justify-content-center">
                           <div class="i-32">
                             <svg
                               fill="#000000"
@@ -235,7 +236,7 @@ const openUrl = (lineId) => {
                       type="button"
                     >
                       <a class="d-block" :href="'tel:' + product.data.mobile">
-                        <div class="btn-with-icon">
+                        <div class="btn-with-icon justify-content-lg-start justify-content-center">
                           <div class="i-32">
                             <svg
                               version="1.1"
