@@ -31,11 +31,11 @@ onMounted(() => {
           <div class="row">
             <!-- footer - logo area -->
             <div class="footer_logo-area col-12">
-              <a href="#" class="mb-16">
+              <router-link to="/" class="mb-16">
                 <h2 class="text-3xl text-500" style="text-align: center">
                   {{ footerData.info.shop_title }}
                 </h2>
-              </a>
+              </router-link>
               <p class="text-base mb-16" style="text-align: center">
                 {{ footerData.info.second_title }}
               </p>

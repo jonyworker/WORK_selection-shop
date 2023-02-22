@@ -30,9 +30,9 @@ const openUrl = (lineId) => {
         <input type="checkbox" id="burger-func-toggle" />
 
         <!-- header - logo -->
-        <a href="#" class="header_logo_link">
+        <router-link to="/" class="header_logo_link">
           <h1 class="text-3xl text-500">{{ footerData.info.shop_title }}</h1>
-        </a>
+        </router-link>
 
         <button
           class="btn flex-shink-0 text-lg"
