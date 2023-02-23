@@ -102,7 +102,7 @@ const getCatalog = (product) => {
 
 .project-list_content .card-tag-text {
   color: $color-primary-default;
-  margin-bottom: 16px;
+  margin-bottom: 4px;
 }
 
 .project-list_content .card-text {

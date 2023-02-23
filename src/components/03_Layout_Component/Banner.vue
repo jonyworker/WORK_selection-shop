@@ -16,7 +16,7 @@ const props = defineProps({
 <template>
   <section class="banner-section">
     <div class="container">
-      <div class="banner-content my-lg-80 my-md-40 my-20">
+      <div class="banner-content my-lg-56 my-md-40 my-20">
         <!-- project-intro-img -->
 
         <div
@@ -42,8 +42,8 @@ const props = defineProps({
             <div
               :class="
                 key == 0
-                  ? 'carousel-item ratio-16x9 active'
-                  : 'carousel-item ratio-16x9'
+                  ? 'carousel-item ratio-2x1 active'
+                  : 'carousel-item ratio-2x1'
               "
               v-for="(item, key) in banner"
               :key="key"
