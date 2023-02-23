@@ -22,6 +22,7 @@ onMounted(() => {
       console.log(response);
       if (response.data.product[0]) {
         product.data = response.data.product[0];
+        
       } else {
         product.data = {};
       }
@@ -49,30 +50,42 @@ const openUrl = (lineId) => {
                 id="carouselExampleIndicators"
                 class="carousel slide"
                 data-bs-ride="carousel"
-              >
+              > 
+                <!-- 圖邊輪播指標 -->
                 <div class="carousel-indicators">
                   <button
+                    v-for="(item, key) in product.data.imgs"
+                    :key ="key"
                     type="button"
                     data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="0"
-                    class="active"
+                    :class="key == 0 ? 'active' : ''"
+                    :data-bs-slide-to="key"
+                    :aria-label="'Slide ' + key + 1"
                     aria-current="true"
-                    aria-label="Slide 1"
                   ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                  ></button>
+                  
                 </div>
+                <!-- 圖片儲放區（測試） -->
                 <div class="carousel-inner">
+                  <div 
+                    :class="
+                    key == 0
+                    ? 'carousel-item ratio-1x1 active'
+                    : 'carousel-item ratio-1x1'
+                    "
+                    v-for="(item, key) in product.data.imgs"
+                    :key ="key"
+                  >
+                    <img
+                      :src="item.imgname"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                  </div>
+                  
+                </div>
+                <!-- 圖片儲放區 -->
+                <!-- <div class="carousel-inner">
                   <div class="carousel-item ratio-1x1 active">
                     <img
                       :src="product.data.imgname1"
@@ -100,7 +113,8 @@ const openUrl = (lineId) => {
                       alt="..."
                     />
                   </div>
-                </div>
+                </div> -->
+                <!-- 上下頁按鈕 -->
                 <button
                   class="carousel-control-prev"
                   type="button"
