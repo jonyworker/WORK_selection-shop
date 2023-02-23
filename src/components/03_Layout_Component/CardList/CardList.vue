@@ -64,10 +64,10 @@ const getCatalog = (product) => {
                   <div class="card-text-icon-wrap">
                     <span class="material-symbols-outlined"> sell </span>
                     <p class="card-text line-thought">
-                      {{ (item.market_price).toLocaleString('en-US') }}
+                      市售價 NT${{ (item.market_price).toLocaleString('en-US') }}
                     </p>
                   </div>
-                  <p v-if="item.show_price_ind == 1" class="text-2xl text-bold">{{ (item.price).toLocaleString('en-US') }}</p>
+                  <p v-if="item.show_price_ind == 1" class="text-2xl text-bold">NT${{ (item.price).toLocaleString('en-US') }}</p>
                   <p v-if="item.show_price_ind == 2" class="text-2xl text-bold">歡迎詢價</p>
                 </div>
               </div>
