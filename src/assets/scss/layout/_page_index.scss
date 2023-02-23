@@ -34,45 +34,6 @@
 .main-nav-content .nav-item:hover {
   color: $color-main;
 }
-/*========= INDEX project-list_content - 個別設定 =========*/
-/*----- card - 個別設定 -----*/
-
-.project-list_content .card-content:not(:nth-of-type(-1n+3)) {
-  margin-top: 24px;
-}
-
-.project-list_content .card-body {
-  // background-color: $color-white;
-  // padding-top: 16px;
-  // padding-left: 16px;
-  // padding-right: 16px;
-  padding: 24px;
-}
-.project-list_content .card-footer {
-  background-color: $color-white;
-  padding-bottom: 24px;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-.project-list_content .card-tag-text {
-  color: $color-primary-default;
-  margin-bottom: 16px;
-}
-
-.project-list_content .card-text {
-  color: $text-color-60;
-}
-.project-list_content .card-text.line-thought {
-  text-decoration-color: $text-color-60;
-}
-.card-text-icon-wrap .material-symbols-outlined {
-  font-size: 15px;
-  color: $color-text-main;
-}
-.project-list_content .card-footer div+.card-text {
-  @include text-lg;
-}
 
 /*========= INDEX card - 個別設定 =========*/
 
