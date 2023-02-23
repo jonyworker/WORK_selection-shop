@@ -69,7 +69,7 @@ onMounted(() => {
               <div class="col-12">
                 <!-- footer copyright -->
                 <p class="text-xs" style="text-align: center">
-                  {{ footerData.info.copyright_note }}
+                  Copyright &copy; {{dateYear}} {{ footerData.info.shop_title }} 版權所有 All rights reserved.
                 </p>
               </div>
             </div>
