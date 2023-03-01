@@ -172,14 +172,14 @@ const openUrl = (lineId) => {
                       >NT${{ product.data.market_price }}</span
                     >
                   </p>
-                  <p v-if="product.data.show_price_ind == 1" class="text-2xl text-bold">NT${{ product.data.price }}</p>
-                  <p v-if="product.data.show_price_ind == 2" class="text-2xl text-bold" style="color:#FFB11B">歡迎來電洽詢</p>
+                  <p v-if="product.data.show_price_ind == 1" class="text-3xl text-bold">NT${{ product.data.price }}</p>
+                  <p v-if="product.data.show_price_ind == 2" class="text-3xl text-bold" style="color:#FFB11B">歡迎來電洽詢</p>
                 </div>
                 <!-- 分隔線 -->
-                <div class="divider mb-16"></div>
+                <div class="divider"></div>
 
                 <!-- 聯絡按鈕 -->
-                <div class="col-12">
+                <div class="col-12 my-16">
                   <div class="d-flex flex-md-row flex-column gap-16 mx-auto">
                     <!-- line諮詢按鈕 -->
                     <button
@@ -292,6 +292,23 @@ const openUrl = (lineId) => {
                     </button>
                   </div>
                 </div>
+
+                <!-- 分隔線 -->
+                <div class="divider"></div>
+                <p class="text-base text-700 mb-8">| 商品詳情 |</p>
+                <ul>
+                  <li class="text-base text-500">- 品名：<span class="text-300">天然藍寶造型男戒</span></li>
+                  <li class="text-base text-500">- 主石：<span class="text-300">1.40ct</span></li>
+                  <li class="text-base text-500">- 材質：<span class="text-300">白K金</span></li>
+                  <li class="text-base text-500">- 尺寸：<span class="text-300">國際戒圍13號(戒圍可更改)</span></li>
+                  <li class="text-base text-500">- 備註：<span class="text-300">完美車工/成色美/深邃寶藍</span></li>
+                  <li class="text-base text-500">- 附件：<span class="text-300">本中心精美保證書及收納盒</span></li>
+                  <li class="text-base text-500">- 價格：<span class="text-300">電洽或來電商議</span></li>
+                  <li class="text-base text-500">- 店名：<span class="text-300">吉成精品當舖</span></li>
+                  <li class="text-base text-500">- 地址：<span class="text-300">高雄市鳳山區建國路二段59之12號</span></li>
+                  <li class="text-base text-500">- 電話：<span class="text-300">07-7431122</span></li>
+                </ul>
+
               </div>
             </div>
           </div>
