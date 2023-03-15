@@ -3,7 +3,7 @@
   import { onMounted, reactive } from 'vue'; 
   import axios from 'axios';
 
-  const runkey = 'c911c55c8e4f22c1ef5066573f7f0585';
+  // const runkey = 'c911c55c8e4f22c1ef5066573f7f0585';
   
   export default {
     setup() {
@@ -11,9 +11,9 @@
       let product = reactive({data:[]});
       onMounted(() => {
         axios.get('api/productdesc',{
-          headers: {
-            runkey: runkey,
-          },
+          // headers: {
+          //   runkey: runkey,
+          // },
           params: {
             id: 1,
           }

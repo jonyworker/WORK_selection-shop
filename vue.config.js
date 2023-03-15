@@ -28,14 +28,14 @@ module.exports = defineConfig({
     }
   },
   // 使用 http-proxy-middleware 代理解决 Api跨域問題
-  devServer: {
-    proxy: {
-      '/api': {
-        target: 'https://pawndemo.karwee01.com/api',
-        pathRewrite: { '^/api': '' },
-        changeOrigin: true,
-        ws: true
-      },
-    } 
-  }
+  // devServer: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'https://z0032.ktp888.tw/api',
+  //       pathRewrite: { '^/api': '' },
+  //       changeOrigin: true,
+  //       ws: true
+  //     },
+  //   } 
+  // }
 })

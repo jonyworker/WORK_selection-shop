@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const http = axios.create({
   baseURL: process.env.VUE_APP_API_BASEURL, // 设置请求的baseURL
 });
@@ -7,7 +8,7 @@ axios.defaults.withCredentials=false;
 http.interceptors.request.use(config => {
   // 在发送请求之前做些什么
   // 例如，在请求头中加入token
-  config.headers['runkey'] ='c911c55c8e4f22c1ef5066573f7f0585';
+  config.headers['runkey'] ='7cu4PdMqVOk3uEnizfr7KGw4GFzITfH6';
   return config;
 }, error => {
   // 对请求错误做些什么
