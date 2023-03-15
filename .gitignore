@@ -1,12 +1,12 @@
 .DS_Store
 node_modules
 /dist
-
+utils/http.js
 
 # local env files
 .env.local
 .env.*.local
-http.js
+
 
 # Log files
 npm-debug.log*
